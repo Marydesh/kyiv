@@ -17,6 +17,7 @@
     https://day.js.org/docs/en/manipulate/add
 
 * Worked on this assignment with the help of
+- my Bootcamp tutor Trinh Nguyen
 - my tutor Doug - https://preply.com/en/tutor/3316660
 - codeacademy classes
 - bootcamp class materials
