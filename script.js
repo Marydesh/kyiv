@@ -9,6 +9,8 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
 
+
+  // Adedd a function to save the text to the local storage when the save button is clicked
   const timeBlocks = $(".time-block")
   timeBlocks.each(function (i, timeBlock) {
     const saveBtn = $(timeBlock).children('.saveBtn')
@@ -31,13 +33,11 @@ $(function () {
     let id = timeBlock.id
     //get the hour inside the id
     let blockHour = id.slice(5)
-    //let blockHour = id.split("-")[1]
-    console.log(blockHour, currentHour);
     //compare the block hour to the currentHour
-    if(currentHour < blockHour){
+    if (currentHour < blockHour) {
       //assign class 'future' to timeblock
       $(this).addClass('future')
-    } else if (currentHour > blockHour){
+    } else if (currentHour > blockHour) {
       //assign class 'past' to timeblock
       $(this).addClass('past')
     } else {
@@ -45,77 +45,26 @@ $(function () {
       $(this).addClass('present')
     }
   })
-  // const prevHour = currentHour.subtract(1, 'hour')
-  // const nextHour = currentHour.add(1, 'hour')
-  // const hours = [prevHour, currentHour, nextHour]
-  // timeBlocks.each(function(i, timeBlock) {
-  //   const hourEl = $(timeBlock).children('.hour')
-  //   const hour = hours[i]
-  //   hourEl.text(hour.format("ha"))
-  //   timeBlock.id = "hour-" + hour.format('h')
-  // })
-
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
 
   timeBlocks.each(function (i, timeBlock) {
-    // const hour = hours[i]
-    // const textArea = $(timeBlock).children('textarea')
-    // const saved = localStorage.getItem("hour-" + hour.format('h'))
-    // if (!saved) return
-    // $(textArea).val(saved)
+    const textArea = $(timeBlock).children('textarea')
+    const saved = localStorage.getItem(timeBlock.id)
+    if (!saved) return
+    $(textArea).val(saved)
   })
+  // THEN the current day is displayed at the top of the calendar
 
   // TODO: Add code to display the current date in the header of the page.
-  /*
-    $()
-      .text("..")
-      currentHour.format("")
 
-    https://api.jquery.com/
-      .text()
-      .val()
-      .each()
-      .on()
-      $()
-  */
+  // Added a function to display current time up to seconds 
+  function displayTime() {
+    $('#currentDay').text(dayjs().format('MMMM D YYYY, h:mm:ss a'))
+  }
+
+  displayTime()
+  setInterval(displayTime, 1000)
+
 });
-
-
-// const _saveBtns = document.querySelectorAll(".saveBtn")
-// _saveBtns.forEach(function(banana, abc) {
-//   console.log(`
-//     the banana is: ${banana}
-//     the index is: ${abc}
-//   `)
-// })
-
-/*
-  https://day.js.org/docs/en/get-set/hour
-
-  HTMLElement.addEventListener("mouseenter", function(){})
-  HTMLElement.addEventListener("mouseenter", ()=>{})
-
-  When you do DOM stuff with plain HTML, you are dealing with HTMLElement objects
-    {
-      innerText: "",
-      innerHTML: "",
-      addEventListener: (){},
-      style: {
-        backgroundColor: ""
-      }
-    }
-  When you do DOM stuff with plain jQuery, you are dealing with jQuery objects
-    {
-      text(){},
-      on(){},
-    }
-
-    localStorage.getItem("key")
-    localStorage.setItem("key", "value")
-
-    // https://day.js.org/docs/en/parse/string-format
-    https://day.js.org/docs/en/display/format
-    https://day.js.org/docs/en/manipulate/add
-*/

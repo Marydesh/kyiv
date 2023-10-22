@@ -1,24 +1,27 @@
 # Work Day Scheduler Starter Code
 
-User Story
+![Screenshot 1](./Assets/scr%201.png)
+![Screenshot 2](./Assets/scr%202.png)
+![Screenshot 3](./Assets/scr%203.png)
 
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
+* Worked with a starter code to add the functionality to the save buttons to be able to save the text input to the local storage as well as for the input to be displayed upon the page reload.
 
-Acceptance Criteria
+* Added the Current Day and Time to be displayed at the top of the page;
+
+* Used daysJS to compare the current hour against the past/future/present classes/hours to apply the correspomding color;
+
+* Day JS resources used:
+    https://day.js.org/docs/en/get-set/hour
+    https://day.js.org/docs/en/parse/string-format
+    https://day.js.org/docs/en/display/format
+    https://day.js.org/docs/en/manipulate/add
+
+* Worked on this assignment with the help of
+- my tutor Doug - https://preply.com/en/tutor/3316660
+- codeacademy classes
+- bootcamp class materials
 
 
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with time blocks for standard business hours of 9am to 5pm
-WHEN I view the time blocks for that day
-THEN each time block is color-coded to indicate whether it is in the past, present, or future
-WHEN I click into a time block
-THEN I can enter an event
-WHEN I click the save button for that time block
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
+Thank you for reviewing this!
+
+
